@@ -92,7 +92,7 @@ void loop()                     // run over and over again
  // Checks to eee if snake collides with itself
  if ( collide() )
  {
-  Tone_Start(500,100);
+  Tone_Start(50000000,100);
   speed = 0;
   gameOver = true;
  }
@@ -104,8 +104,8 @@ void loop()                     // run over and over again
    xapple = random(8);              // Roll new values for apple
    yapple = random(8);
    Tone_Start(18182,50);
-   binary = binary * 2 + 1;
-   marker ++;                      // Add one body parts to the snake.
+   binary = binary * 2 + 1;       // Add one LED Light after it eats apple
+   marker ++;                      // Add one body parts to the snake after it eats apple
    if (binary > 255)
    {
     binary = 0;                       // Restart to zero LED lights
@@ -194,7 +194,7 @@ boolean collide()
   return false;
 }
 
-void gameOverScreen()
+void gameOverScreen()               //GameOver sign
 {
   DrawPx(0,0,White);
   DrawPx(1,1,White);
